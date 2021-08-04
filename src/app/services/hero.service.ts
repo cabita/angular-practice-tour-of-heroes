@@ -22,10 +22,11 @@ export class HeroService {
 
   constructor( 
     private http: HttpClient,
+
     private messageService: MessageService ) { }
 
   getHeroes(): Observable<Hero[]> {
-    console.log(this.http.get<Hero[]>(this.heroesUrl))
+    //console.log(this.http.get<Hero[]>(this.heroesUrl))
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
         tap( _ => this.log('fetched heroes')),

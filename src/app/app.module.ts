@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserTestingModule } from '@angular/platform-browser/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
@@ -14,6 +14,11 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { MedicosComponent } from './testing/intermedio/espias/medicos.component';
+import { MedicoComponent } from './testing/intermedio2/medico/medico.component';
+import { HospitalComponent } from './testing/intermedio2/hospital/hospital.component';
+import { IncrementadorComponent } from './testing/intermedio2/incrementador/incrementador.component';
+
 
 
 @NgModule({
@@ -23,13 +28,17 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    MedicosComponent,
+    MedicoComponent,
+    HospitalComponent,
+    IncrementadorComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserTestingModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientTestingModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
