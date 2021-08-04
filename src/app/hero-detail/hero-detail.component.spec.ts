@@ -29,7 +29,7 @@ describe('HeroDetailComponent', () => {
             FormsModule,
             RouterTestingModule
           ],
-          providers: [ HeroService,  {provide: Location, useValue: locationStub} ]
+          providers: [ HeroService,  MessageService, {provide: Location, useValue: locationStub} ]
       });
 
       fixture = TestBed.createComponent( HeroDetailComponent);
@@ -41,29 +41,12 @@ describe('HeroDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-/*   it( ' Call the method getHero', () => {
-
-    const Hero: Hero = {
-      id: 1,
-      name: 'test'
-    }
-    
-    const spy = spyOn( serviceHero, 'getHero').and.callFake( (id) => {
-      return of(Hero);      
-    });
-    
-    component.getHero();
-
-    expect( spy ).toHaveBeenCalledWith(1);
-
-}); */
-
   it(' Testing location.back()', () => {
       component.hero = { id: 1, name: 'test'}
       fixture.detectChanges();
        
       const location = fixture.debugElement.injector.get(Location);
-      
+
       const elem = fixture.debugElement.queryAll(By.css('button'))[0];
       elem.triggerEventHandler('click', null);
 
